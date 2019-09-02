@@ -15,58 +15,123 @@
         <![endif]-->
     </head>
     <body>
+      <header></header>
 
+      <main>
       <form>
         <fieldset>
-          <legend>Persoonlijke gegevens</legend>
-          <div class="row">
+        <legend>Persoonlijke gegevens</legend>
+        <div class="tooltip">
+            <button class="notifications" aria-labelledby="notifications-label">?</button>  
+            <div role="tooltip" id="notifications-label">Als je als groep deelneemt, hebben we de gegevens van één aanspreekpunt nodig.<br>Hieronder kan je ook de namen van de andere teamleden (medestudenten) invullen.</div>
+        </div>
 
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="name">Je volledige naam</label>
-                <input type="name" class="form-control" id="name">
-              </div>  
-              <div class="form-group">
-                <label for="tele">Telefoonnummer</label>
-                <input type="tele" class="form-control" id="tele">
+            <div class="row">          
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="name">Je volledige naam</label>
+                  <input type="text" class="form-control" id="name">
+                </div>  
+                <div class="form-group">
+                  <label for="tels">Telefoonnummer</label>
+                  <input type="tel" class="form-control" id="tel">
+                </div>
               </div>
-            </div>
             
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="email">E-mailadres</label>
-                <input type="email" class="form-control" id="email">
-              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="email">E-mailadres</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+              </div>            
             </div>
-
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Gegevens over je school, studierichting, docent en eventuele groepsleden</legend>
+          </fieldset>
+        
 
           <div class="row">
             <div class="col-sm-6">
-              <div class="form-group">
-                <label for="school">Naam van je school of universiteit</label>
-                <input type="text" class="form-control" id="school">
-              </div>  
-              <div class="form-group">
-                <label for="studie">Studierichting en jaar</label>
-                <input type="text" class="form-control" id="studie">
-              </div>
+              <fieldset>
+                  <legend>Gegevens over je school, studierichting, docent en eventuele groepsleden</legend>
+                  <div class="form-group">
+                    <label for="school">Naam van je school of universiteit</label>
+                    <input type="text" class="form-control" id="school">
+                  </div>  
+                  <div class="form-group">
+                    <label for="studie">Studierichting en jaar</label>
+                    <input type="text" class="form-control" id="studie">
+                  </div>
+                  <div class="form-group">
+                    <label for="docent">Volledige naam van de toezichthoudende docent</label>
+                    <input type="texts" class="form-control" id="docent">
+                    </div>
+                  <div class="form-group">
+                    <label for="docent-email">E-mailadres van de toezichthoudende docent</label>
+                    <input type="email" class="form-control" id="docent-email">
+                  </div>
+                  <div class="form-group">
+                    <label for="docent-tel">Telefoonnummer van de toezichthoudende docent</label>
+                    <input type="tel" class="form-control" id="docent-tel">
+                  </div>
+                  <div class="form-group">
+                    <label for="group-names">Werk je in groep? Vuk dan de volledige namen van je medestudenten in. Eén naam per regel.</label>
+                    <textarea class="form-control" id="group-names" rows="5"></textarea>
+                  </div>
+              </fieldset>
             </div>
-            
+          
+
             <div class="col-sm-6">
-              <div class="form-group">
-                <label for="email">E-mailadres</label>
-                <input type="email" class="form-control" id="email">
-              </div>
+              <fieldset>
+                  <legend>Wat kan jou en je team helpen bij deze wedstrijd?</legend>  
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Coaching esperten UD</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2">Coaching ervaringsdeskundigen (mensen met een toegankelijkheidsnood)</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                    <label class="form-check-label" for="exampleCheck3">Goede voorbeelden ontdekken</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                    <label class="form-check-label" for="exampleCheck4">Workshop Universal Design</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck5">
+                    <label class="form-check-label" for="exampleCheck5">Workshop Ergonomie</label>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck6">
+                    <label class="form-check-label" for="exampleCheck6">Workshop User Centered Design</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="workshop">Workshop over een specifiek thema zoals sport, cultuur ...</label>
+                    <input type="text" class="form-control" id="workshop">
+                  </div>
+                  <div class="form-group">
+                    <label for="workshop-different">Iets anders</label>
+                    <input type="text" class="form-control" id="workshop-different">
+                  </div>
+              </fieldset>
             </div>
           </div>
-
-        </fieldset>
+            
+          <button type="submit" class="btn btn-primary">Inschrijven</button>
+          <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="register">
+              <label class="form-check-label" for="register">Als ik me registreer, engageer ik me om een projectposter voor de wedstrijd in te dienen en ga ik akkoord met de inshrijvingsvoorwaarden (link)</label>
+          </div>
+        
       </form>
+    </main>
+
+    <footer>
+      
+    </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

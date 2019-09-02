@@ -1,0 +1,1 @@
+body{padding:2rem}.tooltip{position:relative}[role=tooltip]{display:none}button:focus+[role=tooltip],button:hover+[role=tooltip]{display:block}
