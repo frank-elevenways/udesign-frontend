@@ -1,4 +1,39 @@
 body {
-  background: blue; }
+  padding: 2rem; }
+
+.personal {
+  display: inline-block;
+  width: 15rem;
+  font-size: 1.5rem;
+  font-weight: normal; }
+
+.toggletip-container {
+  position: relative;
+  display: inline-block;
+  /* the bubble element, added inside the toggletip live region */ }
+  .toggletip-container .toggletip-bubble {
+    display: inline-block;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 30em;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    z-index: 20; }
+  .toggletip-container button[data-toggletip-content] {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 0;
+    background: #000;
+    font-family: serif;
+    font-weight: bold;
+    color: #fff; }
+    .toggletip-container button[data-toggletip-content] :focus {
+      outline: none;
+      -webkit-box-shadow: 0 0 0 0.25rem skyBlue;
+              box-shadow: 0 0 0 0.25rem skyBlue; }
 
 /*# sourceMappingURL=main.css.map */
