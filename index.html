@@ -7,7 +7,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="scss/main.css">
 
         <!--[if lt IE 9]>
@@ -18,11 +19,11 @@
       <header></header>
 
       <main>
-      <form>
+      <form novalidate>
         <fieldset>
           <h3 class="personal">Persoonlijke gegevens</h3>
           <span class="toggletip-container">
-              <button type="button" aria-label="more info" data-toggletip-content="Als je als groep deelneemt, hebben we de gegevens an één aanspreekpunt nodig.<br>Hieronder kan je ook de namen van de andere teamleden (medestudenten) invullen.">?</button>
+              <button class="toggletip-button" type="button" aria-label="more info" data-toggletip-content="Als je als groep deelneemt, hebben we de gegevens an één aanspreekpunt nodig.<br>Hieronder kan je ook de namen van de andere teamleden (medestudenten) invullen.">?</button>
               <span role="status"></span>
           </span>
 
@@ -30,18 +31,18 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="name">Je volledige naam</label>
-                  <input type="text" class="form-control" id="name">
+                  <input type="text" class="form-control" id="name" autocomplete>
                 </div>  
                 <div class="form-group">
-                  <label for="tels">Telefoonnummer</label>
-                  <input type="tel" class="form-control" id="tel">
+                  <label for="tel">Telefoonnummer</label>
+                  <input type="tel" class="form-control" id="tel" autocomplete>
                 </div>
               </div>
             
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="email">E-mailadres</label>
-                  <input type="email" class="form-control" id="email">
+                  <input type="email" class="form-control" id="email" autocomplete>
                 </div>
               </div>            
             </div>
@@ -54,26 +55,26 @@
                   <legend>Gegevens over je school, studierichting, docent en eventuele groepsleden</legend>
                   <div class="form-group">
                     <label for="school">Naam van je school of universiteit</label>
-                    <input type="text" class="form-control" id="school">
+                    <input type="text" class="form-control" id="school" autocomplete>
                   </div>  
                   <div class="form-group">
                     <label for="studie">Studierichting en jaar</label>
-                    <input type="text" class="form-control" id="studie">
+                    <input type="text" class="form-control" id="studie" autocomplete>
                   </div>
                   <div class="form-group">
                     <label for="docent">Volledige naam van de toezichthoudende docent</label>
-                    <input type="texts" class="form-control" id="docent">
+                    <input type="texts" class="form-control" id="docent" autocomplete>
                     </div>
                   <div class="form-group">
                     <label for="docent-email">E-mailadres van de toezichthoudende docent</label>
-                    <input type="email" class="form-control" id="docent-email">
+                    <input type="email" class="form-control" id="docent-email" autocomplete>
                   </div>
                   <div class="form-group">
                     <label for="docent-tel">Telefoonnummer van de toezichthoudende docent</label>
-                    <input type="tel" class="form-control" id="docent-tel">
+                    <input type="tel" class="form-control" id="docent-tel" autocomplete>
                   </div>
                   <div class="form-group">
-                    <label for="group-names">Werk je in groep? Vuk dan de volledige namen van je medestudenten in. Eén naam per regel.</label>
+                    <label for="group-names">Werk je in groep? Vul dan de volledige namen van je medestudenten in. Eén naam per regel.</label>
                     <textarea class="form-control" id="group-names" rows="5"></textarea>
                   </div>
               </fieldset>
@@ -81,11 +82,15 @@
           
 
             <div class="col-sm-6">
+              <span class="toggletip-container">
+                <button class="toggletip-button" type="button" aria-label="more info" data-toggletip-content="Jij vraagt, wij draaien">?</button>
+                <span role="status"></span>
+               </span>
               <fieldset>
                   <legend>Wat kan jou en je team helpen bij deze wedstrijd?</legend>  
                   <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Coaching esperten UD</label>
+                    <label class="form-check-label" for="exampleCheck1">Coaching experten UD</label>
                   </div>
                   <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck2">
@@ -135,8 +140,9 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     </body>
 </html>
