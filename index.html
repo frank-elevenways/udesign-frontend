@@ -30,19 +30,19 @@
             <div class="row">          
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="name">Je volledige naam</label>
-                  <input type="text" class="form-control" id="name" autocomplete>
+                  <label for="name" id="label-name">Je volledige naam</label>
+                  <input type="text" class="form-control" id="name" autocomplete="name" required aria-labelledby="label-name error-yourname">
                 </div>  
                 <div class="form-group">
                   <label for="tel">Telefoonnummer</label>
-                  <input type="tel" class="form-control" id="tel" autocomplete>
+                  <input type="tel" class="form-control" id="tel" autocomplete="tel-local" required>
                 </div>
               </div>
             
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="email">E-mailadres</label>
-                  <input type="email" class="form-control" id="email" autocomplete>
+                  <input type="email" class="form-control" id="email" autocomplete="email" required>
                 </div>
               </div>            
             </div>
@@ -55,23 +55,23 @@
                   <legend>Gegevens over je school, studierichting, docent en eventuele groepsleden</legend>
                   <div class="form-group">
                     <label for="school">Naam van je school of universiteit</label>
-                    <input type="text" class="form-control" id="school" autocomplete>
+                    <input type="text" class="form-control" id="school" autocomplete required>
                   </div>  
                   <div class="form-group">
                     <label for="studie">Studierichting en jaar</label>
-                    <input type="text" class="form-control" id="studie" autocomplete>
+                    <input type="text" class="form-control" id="studie" autocomplete required>
                   </div>
                   <div class="form-group">
                     <label for="docent">Volledige naam van de toezichthoudende docent</label>
-                    <input type="texts" class="form-control" id="docent" autocomplete>
+                    <input type="texts" class="form-control" id="docent" autocomplete required>
                     </div>
                   <div class="form-group">
                     <label for="docent-email">E-mailadres van de toezichthoudende docent</label>
-                    <input type="email" class="form-control" id="docent-email" autocomplete>
+                    <input type="email" class="form-control" id="docent-email" autocomplete required>
                   </div>
                   <div class="form-group">
                     <label for="docent-tel">Telefoonnummer van de toezichthoudende docent</label>
-                    <input type="tel" class="form-control" id="docent-tel" autocomplete>
+                    <input type="tel" class="form-control" id="docent-tel" autocomplete required>
                   </div>
                   <div class="form-group">
                     <label for="group-names">Werk je in groep? Vul dan de volledige namen van je medestudenten in. Eén naam per regel.</label>
@@ -138,7 +138,7 @@
       
     </footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 <!-- 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 

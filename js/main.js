@@ -46,32 +46,50 @@
 // input box, as well as the span element into which we will place the error message.
 
 var form  = document.getElementsByTagName('form')[0];
+var yourname = document.getElementById('name');
+var tel = document.getElementById('tel');
 var email = document.getElementById('email');
 var error = document.querySelector('.error');
 
 
-
-email.addEventListener("input", function (event) {
-  // Each time the user types something, we check if the
-  // email field is valid.
-  if (email.validity.valid) {
-    // In case there is an error message visible, if the field
-    // is valid, we remove the error message.
-    error.innerHTML = ""; // Reset the content of the message
-    error.className = "error"; // Reset the visual state of the message
+tel.addEventListener("input", function (event) {
+  if (tel.validity.valid) {
+  	$( ".error-tel" ).remove();
+  	tel.removeAttribute("aria-invalid");
   }
 }, false);
+
+yourname.addEventListener("input", function (event) {
+  if (yourname.validity.valid) {
+  	$( ".error-yourname" ).remove();
+  	yourname.removeAttribute("aria-invalid");
+  }
+}, false);
+
+email.addEventListener("input", function (event) {
+  if (email.validity.valid) {
+  	$( ".error-email" ).remove();
+  	email.removeAttribute("aria-invalid");
+  }
+}, false);
+
 form.addEventListener("submit", function (event) {
-  // Each time the user tries to send the data, we check
-  // if the email field is valid.
-  if (!email.validity.valid) {
-    
-    // If the field is not valid, we display a custom
-    // error message.
-    error.innerHTML = "Vul je E-mailadres in";
-    error.className = "error active";
-    // And we prevent the form from being sent by canceling the event
-    event.preventDefault();
+
+   if ($(yourname).val() === '') {
+	$("<span id='error-yourname' class='error error-yourname' aria-relevant='additions removals' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
+    yourname.setAttribute("aria-invalid", "true");
   }
 
+   if ($(tel).val() === '') {
+	$("<span class='error error-tel' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(tel);    
+    tel.setAttribute("aria-invalid", "true");
+  }
+
+   if (!email.validity.valid) {
+	$("<span class='error error-email' aria-live='polite'>Error: Vul je email corect in</span>").insertAfter(email);    
+    email.setAttribute("aria-invalid", "true")
+  }
+
+ 
+event.preventDefault();
 }, false);
