@@ -41,10 +41,7 @@
 }());
 
 
-
-// There are many ways to pick a DOM node; here we get the form itself and the email
-// input box, as well as the span element into which we will place the error message.
-
+// Form validation
 var form  = document.getElementsByTagName('form')[0];
 var yourname = document.getElementById('name');
 var tel = document.getElementById('tel');
@@ -52,23 +49,19 @@ var email = document.getElementById('email');
 var error = document.querySelector('.error');
 
 
-tel.addEventListener("input", function (event) {
-  if (tel.validity.valid) {
-  	$( ".error-tel" ).remove();
-  	tel.removeAttribute("aria-invalid");
-  }
-}, false);
-
-yourname.addEventListener("input", function (event) {
-  if (yourname.validity.valid) {
-  	$( ".error-yourname" ).remove();
+yourname.addEventListener("focus", function (event) {
+  	$( ".name .error" ).remove();
   	yourname.removeAttribute("aria-invalid");
-  }
+}, true);
+
+tel.addEventListener("focus", function (event) {
+  	$( ".tel .error" ).remove();
+  	tel.removeAttribute("aria-invalid");
 }, false);
 
 email.addEventListener("input", function (event) {
-  if (email.validity.valid) {
-  	$( ".error-email" ).remove();
+  if (!email.validity.valid) {
+  	$( ".email .error" ).remove();
   	email.removeAttribute("aria-invalid");
   }
 }, false);
@@ -76,17 +69,17 @@ email.addEventListener("input", function (event) {
 form.addEventListener("submit", function (event) {
 
    if ($(yourname).val() === '') {
-	$("<span id='error-yourname' class='error error-yourname' aria-relevant='additions removals' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
+	$("<span id='error-yourname' class='error' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
     yourname.setAttribute("aria-invalid", "true");
   }
 
    if ($(tel).val() === '') {
-	$("<span class='error error-tel' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(tel);    
+	$("<span class='error' aria-live='polite'>Error: Vul hier je telefoonnummer in</span>").insertAfter(tel);    
     tel.setAttribute("aria-invalid", "true");
   }
 
    if (!email.validity.valid) {
-	$("<span class='error error-email' aria-live='polite'>Error: Vul je email corect in</span>").insertAfter(email);    
+	$("<span class='error' aria-live='polite'>Error: Vul je email correct in</span>").insertAfter(email);    
     email.setAttribute("aria-invalid", "true")
   }
 
