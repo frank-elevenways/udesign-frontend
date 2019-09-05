@@ -52,7 +52,7 @@ var error = document.querySelector('.error');
 yourname.addEventListener("focus", function (event) {
   	$( ".name .error" ).remove();
   	yourname.removeAttribute("aria-invalid");
-}, true);
+}, false);
 
 tel.addEventListener("focus", function (event) {
   	$( ".tel .error" ).remove();
@@ -60,7 +60,7 @@ tel.addEventListener("focus", function (event) {
 }, false);
 
 email.addEventListener("input", function (event) {
-  if (!email.validity.valid) {
+  if (email.validity.valid) {
   	$( ".email .error" ).remove();
   	email.removeAttribute("aria-invalid");
   }
@@ -69,17 +69,17 @@ email.addEventListener("input", function (event) {
 form.addEventListener("submit", function (event) {
 
    if ($(yourname).val() === '') {
-	$("<span id='error-yourname' class='error' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
+	$("<span id='error-name' class='error' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
     yourname.setAttribute("aria-invalid", "true");
   }
 
    if ($(tel).val() === '') {
-	$("<span class='error' aria-live='polite'>Error: Vul hier je telefoonnummer in</span>").insertAfter(tel);    
+	$("<span id='error-tel' class='error' aria-live='polite'>Error: Vul hier je telefoonnummer in</span>").insertAfter(tel);    
     tel.setAttribute("aria-invalid", "true");
   }
 
    if (!email.validity.valid) {
-	$("<span class='error' aria-live='polite'>Error: Vul je email correct in</span>").insertAfter(email);    
+	$("<span id='error-email' class='error' aria-live='polite'>Error: Vul je email correct in</span>").insertAfter(email);    
     email.setAttribute("aria-invalid", "true")
   }
 

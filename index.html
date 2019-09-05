@@ -31,18 +31,18 @@
               <div class="col-sm-6">
                 <div class="form-group name">
                   <label for="name" id="label-name">Je volledige naam</label>
-                  <input type="text" class="form-control" id="name" autocomplete="name" required aria-labelsledby="label-name">
+                  <input type="text" class="form-control" id="name" autocomplete="name" aria-labelsledby="label-name error-name" required>
                 </div>  
-                <div class="form-group tel">
+                <div class="form-group tel" id="label-tel">
                   <label for="tel">Telefoonnummer</label>
-                  <input type="tel" class="form-control" id="tel" autocomplete="tel-local" required>
+                  <input type="tel" class="form-control" id="tel" autocomplete="tel-local" aria-labelsledby="label-tel error-tel" required>
                 </div>
               </div>
             
               <div class="col-sm-6">
-                <div class="form-group email">
+                <div class="form-group email" id="label-email">
                   <label for="email">E-mailadres</label>
-                  <input type="email" class="form-control" id="email" autocomplete="email" required>
+                  <input type="email" class="form-control" id="email" autocomplete="email" aria-labelsledby="label-email error-email" required>
                 </div>
               </div>            
             </div>
