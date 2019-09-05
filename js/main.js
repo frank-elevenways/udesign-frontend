@@ -50,39 +50,40 @@ var error = document.querySelector('.error');
 
 
 yourname.addEventListener("focus", function (event) {
-  	$( ".name .error" ).remove();
+  	$( "#error-name" ).remove();
   	yourname.removeAttribute("aria-invalid");
 }, false);
 
 tel.addEventListener("focus", function (event) {
-  	$( ".tel .error" ).remove();
+  	$( "#error-tel" ).remove();
   	tel.removeAttribute("aria-invalid");
 }, false);
 
 email.addEventListener("input", function (event) {
   if (email.validity.valid) {
-  	$( ".email .error" ).remove();
+  	$( "#error-email" ).remove();
   	email.removeAttribute("aria-invalid");
   }
 }, false);
 
 form.addEventListener("submit", function (event) {
 
-   if ($(yourname).val() === '') {
-	$("<span id='error-name' class='error' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
-    yourname.setAttribute("aria-invalid", "true");
-  }
+	if ($(yourname).val() === '' && $(yourname).next('#error-name').length == 0) {
+		$("<span id='error-name' class='error' aria-live='polite'>Error: Vul hier je naam in</span>").insertAfter(yourname);    
+    	yourname.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}
 
-   if ($(tel).val() === '') {
-	$("<span id='error-tel' class='error' aria-live='polite'>Error: Vul hier je telefoonnummer in</span>").insertAfter(tel);    
-    tel.setAttribute("aria-invalid", "true");
-  }
+    if ($(tel).val() === '' && $(tel).next('#error-tel').length == 0) {
+		$("<span id='error-tel' class='error' aria-live='polite'>Error: Vul hier je telefoonnummer in</span>").insertAfter(tel);    
+    	tel.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}
 
-   if (!email.validity.valid) {
-	$("<span id='error-email' class='error' aria-live='polite'>Error: Vul je email correct in</span>").insertAfter(email);    
-    email.setAttribute("aria-invalid", "true")
-  }
+    if (!email.validity.valid  && $(email).next('#error-email').length == 0) {
+		$("<span id='error-email' class='error' aria-live='polite'>Error: Vul je email correct in</span>").insertAfter(email);    
+    	email.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}
 
- 
-event.preventDefault();
 }, false);
