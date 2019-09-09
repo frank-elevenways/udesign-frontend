@@ -46,6 +46,11 @@ var form  = document.getElementsByTagName('form')[0];
 var yourname = document.getElementById('name');
 var tel = document.getElementById('tel');
 var email = document.getElementById('email');
+var school = document.getElementById('school');
+var studie = document.getElementById('studie');
+var docent = document.getElementById('docent');
+var docentEmail = document.getElementById('docent-email');
+var docentTel = document.getElementById('docent-tel');
 var error = document.querySelector('.error');
 
 
@@ -63,6 +68,41 @@ email.addEventListener("input", function (event) {
   if (email.validity.valid) {
   	$( "#error-email" ).remove();
   	email.removeAttribute("aria-invalid");
+  }
+}, false);
+
+school.addEventListener("input", function (event) {
+  if (school.validity.valid) {
+  	$( "#error-school" ).remove();
+  	school.removeAttribute("aria-invalid");
+  }
+}, false);
+
+studie.addEventListener("input", function (event) {
+  if (studie.validity.valid) {
+  	$( "#error-studie" ).remove();
+  	studie.removeAttribute("aria-invalid");
+  }
+}, false);
+
+docent.addEventListener("input", function (event) {
+  if (docent.validity.valid) {
+  	$( "#error-docent" ).remove();
+  	docent.removeAttribute("aria-invalid");
+  }
+}, false);
+
+docentEmail.addEventListener("input", function (event) {
+  if (docentEmail.validity.valid) {
+  	$( "#error-docent-email" ).remove();
+  	docent.removeAttribute("aria-invalid");
+  }
+}, false);
+
+docentTel.addEventListener("input", function (event) {
+  if (docentEmail.validity.valid) {
+  	$( "#error-docent-tel" ).remove();
+  	docent.removeAttribute("aria-invalid");
   }
 }, false);
 
@@ -85,5 +125,35 @@ form.addEventListener("submit", function (event) {
     	email.setAttribute("aria-invalid", "true");
     	event.preventDefault();
   	}
+
+    if ($(school).val() === '' && $(school).next('#error-school').length == 0) {
+		$("<span id='error-school' class='error' aria-live='polite'>Error: Vul hier de naam van je school in</span>").insertAfter(school);    
+    	tel.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}  	
+
+    if ($(studie).val() === '' && $(studie).next('#error-studie').length == 0) {
+		$("<span id='error-studie' class='error' aria-live='polite'>Error: Vul hier je studierichting en school in</span>").insertAfter(studie);    
+    	tel.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}   	
+
+    if ($(docent).val() === '' && $(docent).next('#error-docent').length == 0) {
+		$("<span id='error-docent' class='error' aria-live='polite'>Error: Vul hier de naam van je docent in</span>").insertAfter(docent);    
+    	tel.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}  
+
+    if (!docentEmail.validity.valid  && $(docentEmail).next('#error-docent-email').length == 0) {
+		$("<span id='error-docent-email' class='error' aria-live='polite'>Error: Vul het e-mailadres van je docent correct in</span>").insertAfter(docentEmail);    
+    	email.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}  	
+
+    if (!docentTel.validity.valid  && $(docentTel).next('#error-docent-tel').length == 0) {
+		$("<span id='error-docent-tel' class='error' aria-live='polite'>Error: Vul het telefoonnummer van je docent correct in</span>").insertAfter(docentTel);    
+    	email.setAttribute("aria-invalid", "true");
+    	event.preventDefault();
+  	}   	
 
 }, false);
